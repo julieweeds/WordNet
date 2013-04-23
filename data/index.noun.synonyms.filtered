@@ -1,0 +1,941 @@
+outlet/N	issue/N	release/N
+end/N	goal/N	death/N	close/N	remnant/N
+period/N	flow/N	point/N
+beak/N	bill/N
+e/N	east/N
+darkness/N	shadow/N
+dr./N	physician/N	doctor/N
+institution/N	introduction/N	founding/N	foundation/N	creation/N
+peck/N	spate/N	sight/N	raft/N	pot/N	mess/N	mass/N	lot/N	deal/N
+plate/N	home/N	scale/N
+prohibition/N	ban/N
+energy/N	vigor/N	push/N
+house/N	household/N	home/N	family/N	firm/N	sign/N
+vigor/N	energy/N
+mixture/N	mix/N
+means/N	agency/N	substance/N
+capital/N	washington/N	cap/N
+interest/N	stake/N
+firing/N	inflammation/N	release/N
+michigan/N	chicago/N
+saddam/N	hussein/N
+office/N	bureau/N	authority/N	agency/N	role/N	part/N	function/N	power/N	spot/N	situation/N	post/N	position/N	place/N
+depot/N	store/N	storage/N
+magazine/N	clip/N
+pick/N	choice/N	cream/N	selection/N	option/N
+arrangement/N	system/N	organization/N	organisation/N
+remnant/N	end/N
+appeal/N	collection/N
+recess/N	break/N
+increase/N	addition/N	growth/N
+trust/N	cartel/N	confidence/N
+alternative/N	choice/N
+respect/N	regard/N
+software/N	package/N
+hussein/N	saddam/N
+initiative/N	opening/N
+kind/N	form/N
+brushing/N	brush/N
+pollution/N	contamination/N
+founding/N	introduction/N	institution/N	foundation/N	creation/N
+rock/N	stone/N
+outlook/N	expectation/N
+court/N	courtroom/N
+discussion/N	word/N
+picture/N	movie/N	film/N	video/N
+merchandise/N	product/N
+os/N	bone/N
+part/N	region/N	portion/N	section/N	division/N	role/N	office/N	function/N	piece/N	character/N	share/N	percentage/N	contribution/N	voice/N
+table/N	board/N
+support/N	living/N	backup/N	funding/N
+mode/N	mood/N
+battle/N	conflict/N	struggle/N
+section/N	part/N	division/N	department/N
+enemy/N	foe/N
+mark/N	grade/N	target/N	mug/N	sign/N	scratch/N	cross/N
+step/N	stair/N
+construction/N	building/N	structure/N	expression/N
+prime/N	peak/N	flower/N
+stock/N	store/N	fund/N	origin/N	line/N	blood/N
+backup/N	relief/N	support/N	championship/N
+music/N	medicine/N
+marriage/N	union/N
+outcome/N	result/N	issue/N	event/N	effect/N	consequence/N
+machine/N	car/N
+address/N	speech/N
+china/N	taiwan/N
+death/N	end/N
+body/N	trunk/N
+bath/N	bathtub/N
+meat/N	substance/N	heart/N	core/N	center/N
+deal/N	bargain/N	spate/N	sight/N	raft/N	pot/N	peck/N	mess/N	mass/N	lot/N	hand/N
+son/N	word/N
+u.s./N	us/N	america/N
+territory/N	district/N
+approach/N	attack/N	access/N	advance/N
+hike/N	rise/N	boost/N
+bed/N	layer/N
+attachment/N	bond/N	adhesion/N
+version/N	edition/N	adaptation/N	interpretation/N
+fighting/N	fight/N	combat/N
+answer/N	solution/N	result/N	resolution/N
+patch/N	piece/N
+low/N	first/N
+building/N	construction/N
+exchange/N	central/N	rally/N
+character/N	quality/N	role/N	part/N	type/N	case/N	reference/N
+land/N	ground/N	state/N	country/N	kingdom/N	estate/N	nation/N
+operation/N	surgery/N	performance/N	process/N
+assistant/N	help/N
+year/N	class/N
+maintenance/N	care/N
+web/N	network/N
+act/N	turn/N	number/N	bit/N
+watch/N	sentinel/N
+matter/N	thing/N	affair/N	topic/N	subject/N	issue/N
+project/N	task/N	labor/N
+cutter/N	tender/N
+explosion/N	burst/N
+makeup/N	make-up/N
+reduction/N	simplification/N
+hit/N	strike/N	bang/N
+cut/N	track/N	swing/N
+break/N	fracture/N	recess/N	gap/N
+heading/N	head/N	aim/N
+cliff/N	drop/N
+pool/N	consortium/N	puddle/N
+union/N	north/N	marriage/N
+store/N	stock/N	fund/N	storage/N	memory/N	depot/N
+expectation/N	outlook/N	anticipation/N
+consideration/N	circumstance/N
+creation/N	introduction/N	institution/N	founding/N	foundation/N	world/N	universe/N	existence/N
+child/N	kid/N	baby/N
+case/N	lawsuit/N	cause/N	instance/N	example/N	event/N	subject/N	type/N	character/N
+reflexion/N	reflection/N	expression/N
+arena/N	field/N	area/N	stadium/N	bowl/N
+controversy/N	contention/N
+kick/N	boot/N	charge/N	bang/N	beef/N
+damage/N	price/N
+parole/N	word/N	password/N
+search/N	hunt/N
+boy/N	son/N
+airfield/N	field/N
+demand/N	requirement/N
+scheme/N	system/N
+arrest/N	stay/N	check/N
+report/N	study/N	story/N	account/N	paper/N
+cause/N	grounds/N	movement/N	effort/N	campaign/N	suit/N	lawsuit/N	case/N
+precursor/N	herald/N
+forest/N	wood/N
+repair/N	fix/N	resort/N
+eu/N	europe/N
+sunrise/N	morning/N
+bound/N	limit/N
+deed/N	effort/N
+gathering/N	assembly/N
+scratch/N	dough/N	bread/N	mark/N
+rookie/N	cub/N
+metre/N	m/N	measure/N	time/N
+sunshine/N	sun/N
+string/N	train/N	chain/N
+event/N	result/N	outcome/N	issue/N	effect/N	consequence/N
+handgun/N	pistol/N
+east/N	e/N
+thousand/N	m/N
+madam/N	lady/N
+morning/N	sunrise/N
+flower/N	prime/N	peak/N
+h/N	henry/N
+degree/N	grade/N	stage/N	point/N	level/N
+earnings/N	profit/N	net/N	pay/N
+bodyguard/N	guard/N
+tummy/N	pot/N
+player/N	musician/N	actor/N
+space/N	place/N
+brush/N	brushing/N
+ab/N	ba/N
+strike/N	tap/N	hit/N	bang/N
+network/N	net/N
+treaty/N	accord/N
+rule/N	convention/N	principle/N
+resolution/N	declaration/N	settlement/N	solution/N	result/N	answer/N
+wish/N	regard/N
+fire/N	flame/N	firing/N	blast/N	attack/N
+gap/N	opening/N	crack/N	break/N
+accounting/N	account/N
+direction/N	guidance/N	counsel/N	management/N	commission/N	charge/N	focus/N
+bulk/N	volume/N	mass/N
+taiwan/N	china/N
+fund/N	store/N	stock/N
+account/N	report/N	story/N	history/N	accounting/N	explanation/N	bill/N	score/N
+flame/N	fire/N
+stone/N	rock/N
+issue/N	topic/N	subject/N	matter/N	result/N	outcome/N	event/N	effect/N	consequence/N	yield/N	return/N	proceeds/N	outlet/N
+adhesion/N	attachment/N
+paw/N	hand/N
+precondition/N	condition/N
+dance/N	dancing/N
+view/N	perspective/N	survey/N	sight/N	thought/N	opinion/N
+blood/N	origin/N	line/N
+spread/N	gap/N	ranch/N
+president/N	chairman/N
+star/N	champion/N	lead/N
+path/N	way/N	route/N	track/N	course/N
+crack/N	gap/N	shot/N	sally/N	offer/N	fracture/N
+evaluation/N	rating/N
+product/N	merchandise/N
+trick/N	john/N
+collection/N	appeal/N
+permit/N	license/N
+gust/N	blast/N
+board/N	table/N	panel/N	card/N
+debris/N	dust/N
+manager/N	director/N
+lecture/N	speech/N
+beginning/N	start/N	first/N	source/N	origin/N
+society/N	order/N	club/N	company/N
+dialogue/N	negotiation/N
+question/N	inquiry/N	head/N	doubt/N	motion/N
+match/N	peer/N	equal/N	couple/N
+treatment/N	discussion/N
+adoption/N	acceptance/N
+summit/N	peak/N	top/N
+portion/N	part/N	share/N	percentage/N	lot/N
+payload/N	shipment/N
+area/N	field/N	arena/N	region/N
+warrant/N	guarantee/N
+bible/N	word/N	book/N
+rat/N	skunk/N
+precaution/N	guard/N	care/N
+ease/N	relief/N
+mess/N	jam/N	hole/N	fix/N	spate/N	sight/N	raft/N	pot/N	peck/N	mass/N	lot/N	deal/N
+time/N	metre/N	sentence/N
+protection/N	security/N	shelter/N
+release/N	firing/N	loss/N	outlet/N
+activity/N	action/N
+clip/N	time/N
+response/N	answer/N	reception/N
+mass/N	spate/N	sight/N	raft/N	pot/N	peck/N	mess/N	lot/N	deal/N	people/N	volume/N	bulk/N
+al-qaida/N	base/N
+announcement/N	declaration/N
+fight/N	fighting/N	combat/N	conflict/N	battle/N
+reason/N	understanding/N	grounds/N	cause/N
+mississippi/N	ms/N
+reference/N	credit/N	character/N	source/N
+password/N	parole/N
+range/N	reach/N	chain/N	stove/N
+consortium/N	pool/N
+scandal/N	outrage/N
+suggestion/N	trace/N
+attempt/N	effort/N	attack/N
+disaster/N	tragedy/N
+seat/N	tail/N	stern/N	can/N
+representative/N	instance/N	example/N
+border/N	margin/N	edge/N
+turn/N	play/N	tour/N	round/N	number/N	bit/N	act/N
+puddle/N	pool/N
+re/N	ray/N
+offering/N	offer/N
+minister/N	pastor/N
+safety/N	guard/N	rubber/N
+dough/N	scratch/N	bread/N
+declaration/N	announcement/N	resolution/N
+itch/N	urge/N
+seed/N	source/N
+medicine/N	music/N
+physician/N	dr./N	doctor/N
+yield/N	fruit/N	return/N	proceeds/N	issue/N
+story/N	level/N	floor/N	history/N	account/N	report/N
+philosophy/N	ism/N
+leg/N	branch/N	stage/N
+guard/N	safety/N	bodyguard/N	precaution/N
+doctor/N	dr./N
+percent/N	pct/N
+gramme/N	gm/N
+involvement/N	interest/N	liaison/N	affair/N
+settlement/N	resolution/N
+credit/N	reference/N
+lid/N	hat/N
+government/N	authorities/N	governing/N
+bang/N	blast/N	kick/N	charge/N	boot/N	strike/N	hit/N
+maker/N	manufacturer/N
+rebound/N	backlash/N
+bag/N	purse/N	dish/N
+common/N	green/N	commons/N
+couple/N	match/N
+profit/N	net/N	earnings/N	gain/N
+dancing/N	dance/N
+spot/N	place/N	slur/N	patch/N	point/N	situation/N	post/N	position/N	office/N	bit/N
+lag/N	meantime/N	interim/N
+complaint/N	charge/N
+judgment/N	assessment/N	opinion/N
+drink/N	drinking/N
+lesson/N	example/N
+opinion/N	thought/N	view/N	judgment/N	ruling/N	belief/N
+action/N	activity/N
+chain/N	range/N	string/N
+advertising/N	ad/N
+beef/N	kick/N
+penn/N	pennsylvania/N
+conflict/N	battle/N	fight/N	difference/N
+set/N	lot/N	circle/N	band/N	seth/N
+founder/N	father/N
+instance/N	case/N	representative/N	example/N
+campaign/N	movement/N	effort/N	cause/N
+plane/N	sheet/N
+start/N	first/N	beginning/N	jump/N
+rebel/N	johnny/N	insurgent/N
+bathtub/N	bath/N
+nut/N	egg/N	ball/N
+wild/N	wilderness/N
+par/N	equality/N
+obligation/N	duty/N
+witness/N	informant/N
+n/N	north/N
+packet/N	package/N
+art/N	artistry/N
+effectiveness/N	strength/N
+delivery/N	speech/N	rescue/N
+suit/N	cause/N	case/N
+bill/N	account/N	note/N	beak/N	poster/N	notice/N	card/N	peak/N
+mount/N	setting/N
+tyranny/N	dictatorship/N
+date/N	appointment/N
+server/N	host/N
+fracture/N	break/N	crack/N
+monster/N	giant/N
+gm/N	gram/N
+conviction/N	sentence/N
+result/N	outcome/N	issue/N	event/N	effect/N	consequence/N	solution/N	resolution/N	answer/N
+margin/N	border/N	edge/N
+judge/N	justice/N
+aid/N	assistance/N	help/N	care/N	attention/N
+trial/N	run/N	test/N
+bid/N	command/N	play/N	tender/N
+procedure/N	operation/N	function/N
+co-worker/N	colleague/N
+intelligence/N	word/N	news/N
+frank/N	dog/N
+kingdom/N	land/N
+circumstance/N	consideration/N	condition/N
+survey/N	view/N	sight/N
+burst/N	fit/N
+father/N	founder/N	don/N
+voice/N	representative/N	part/N
+tv/N	television/N
+ray/N	re/N
+washington/N	wa/N	capital/N
+law/N	police/N
+worker/N	actor/N
+deputy/N	lieutenant/N
+peter/N	tool/N	dick/N
+girl/N	daughter/N
+trunk/N	body/N
+strength/N	force/N	effectiveness/N
+binding/N	back/N
+note/N	line/N	bill/N
+ballot/N	vote/N
+link/N	connection/N	liaison/N	contact/N
+bike/N	wheel/N	bicycle/N
+gain/N	addition/N	profit/N
+mix/N	mixture/N
+press/N	pressure/N	jam/N	closet/N
+hammer/N	pound/N
+performance/N	operation/N
+retreat/N	retirement/N
+coating/N	application/N
+individual/N	someone/N	person/N
+tail/N	stern/N	seat/N	can/N	shadow/N	quarter/N
+shame/N	disgrace/N
+objective/N	object/N	aim/N
+offer/N	offering/N	crack/N
+form/N	kind/N	configuration/N	figure/N	phase/N	grade/N	class/N
+yard/N	grounds/N	thousand/N	m/N
+stadium/N	bowl/N	arena/N
+shadow/N	trace/N	tail/N
+world/N	existence/N	creation/N	reality/N	public/N	man/N
+terror/N	threat/N
+mr./N	mister/N
+poster/N	notice/N	card/N	bill/N
+home/N	base/N	household/N	house/N	family/N	plate/N
+stern/N	quarter/N	tail/N	seat/N	can/N
+presidency/N	administration/N
+gentleman/N	man/N
+contact/N	link/N	liaison/N
+air/N	line/N
+wind/N	lead/N
+pistol/N	handgun/N
+hand/N	deal/N
+handling/N	treatment/N
+rope/N	circle/N
+service/N	help/N
+wit/N	brain/N	card/N
+interior/N	inside/N
+chalk/N	ice/N	glass/N
+hulk/N	giant/N
+order/N	society/N	club/N
+regard/N	wish/N	respect/N
+error/N	wrongdoing/N
+bit/N	chip/N	second/N	moment/N	minute/N	piece/N	turn/N	number/N	act/N
+aim/N	target/N	objective/N	object/N	heading/N
+standard/N	measure/N
+closet/N	press/N
+pastor/N	minister/N
+newspaper/N	paper/N
+red/N	loss/N
+situation/N	position/N	site/N	spot/N	post/N	place/N	office/N
+dish/N	bag/N
+u.k./N	uk/N	britain/N
+egg/N	nut/N	ball/N
+agency/N	bureau/N	authority/N	representation/N	way/N	means/N
+representation/N	agency/N
+cornerstone/N	foundation/N	basis/N	base/N
+eye/N	middle/N	heart/N	centre/N	center/N
+confidence/N	authority/N	trust/N
+move/N	movement/N	motion/N
+sheet/N	plane/N
+site/N	situation/N
+purse/N	bag/N
+state/N	nation/N	land/N	country/N
+plan/N	program/N
+identification/N	recognition/N
+program/N	plan/N	curriculum/N	platform/N
+charge/N	accusation/N	care/N	mission/N	commission/N	direction/N	kick/N	boot/N	bang/N
+layer/N	level/N
+urge/N	itch/N
+unit/N	whole/N
+struggle/N	conflict/N	battle/N
+score/N	grade/N	account/N
+brain/N	wit/N	head/N
+care/N	attention/N	aid/N	precaution/N	charge/N	maintenance/N
+market/N	grocery/N
+trace/N	shadow/N
+pound/N	hammer/N
+talk/N	lecture/N
+counter/N	return/N
+phase/N	stage/N
+north/N	n/N
+guerilla/N	insurgent/N	guerrilla/N
+price/N	damage/N	cost/N
+advance/N	progress/N	improvement/N	approach/N	rise/N
+track/N	course/N	lead/N	raceway/N	cut/N
+sm/N	ms/N
+arm/N	weapon/N	branch/N
+sport/N	play/N
+tender/N	attendant/N	bid/N	cutter/N
+commission/N	mission/N	direction/N	charge/N
+object/N	target/N	objective/N	aim/N
+function/N	use/N	role/N	part/N	office/N	affair/N	procedure/N
+anticipation/N	expectation/N
+card/N	wit/N	poster/N	notice/N	bill/N	board/N
+telephone/N	phone/N	telephony/N
+fed/N	federal/N
+source/N	origin/N	beginning/N	informant/N	reference/N	seed/N	author/N
+base/N	foundation/N	foot/N	bag/N	floor/N	cornerstone/N	basis/N	home/N	qaeda/N	al-qaida/N
+close/N	end/N
+frog/N	toad/N
+green/N	park/N	commons/N	common/N	jet/N
+wizard/N	star/N	champion/N
+head/N	brain/N	chief/N	point/N	question/N	heading/N
+failure/N	bankruptcy/N
+volume/N	bulk/N	book/N
+review/N	follow-up/N
+movie/N	picture/N	film/N
+employment/N	work/N	use/N	exercise/N
+chief/N	head/N	foreman/N
+help/N	aid/N	assistance/N	service/N	supporter/N	assistant/N
+bowl/N	stadium/N	arena/N
+drinking/N	drink/N
+restriction/N	limitation/N
+glass/N	trash/N	ice/N	chalk/N
+south/N	s/N
+mission/N	commission/N	charge/N
+episode/N	installment/N
+difference/N	conflict/N
+test/N	trial/N	run/N	examination/N
+trade/N	deal/N
+setback/N	blow/N
+lancet/N	lance/N
+type/N	character/N	case/N
+samson/N	bull/N
+thanksgiving/N	grace/N
+assessment/N	judgment/N
+language/N	speech/N
+detention/N	custody/N
+bureau/N	authority/N	agency/N
+doubt/N	question/N
+route/N	road/N
+progress/N	advance/N
+recognition/N	identification/N	credit/N
+rescue/N	delivery/N
+examination/N	test/N	testing/N
+growth/N	development/N	increase/N
+middle/N	eye/N	centre/N	center/N
+brother/N	pal/N
+song/N	call/N
+mug/N	mark/N
+centre/N	heart/N	eye/N	center/N
+appointment/N	date/N
+confirmation/N	check/N
+signal/N	sign/N
+first/N	start/N	beginning/N	low/N
+combat/N	fighting/N	fight/N
+rise/N	upgrade/N	ascent/N	hike/N	boost/N	advance/N
+insurgent/N	guerrilla/N	guerilla/N
+ban/N	prohibition/N
+wash/N	race/N
+reach/N	scope/N	range/N
+total/N	aggregate/N
+existence/N	world/N	universe/N	creation/N
+make-up/N	makeup/N
+fraud/N	sham/N
+jump/N	start/N
+motion/N	movement/N	move/N	question/N
+author/N	source/N
+spate/N	sight/N	raft/N	pot/N	peck/N	mess/N	mass/N	lot/N	deal/N
+topic/N	subject/N	matter/N	issue/N
+security/N	protection/N
+foreman/N	chief/N
+wireless/N	radio/N
+memorial/N	monument/N
+pay/N	earnings/N
+chicago/N	michigan/N
+play/N	bid/N	sport/N	turn/N
+people/N	mass/N
+governing/N	government/N
+solution/N	result/N	resolution/N	answer/N
+blow/N	setback/N	gust/N	blast/N
+transmission/N	infection/N
+regulation/N	rule/N
+guarantee/N	warrant/N
+problem/N	trouble/N
+grade/N	class/N	level/N	score/N	mark/N	degree/N
+level/N	degree/N	grade/N	stage/N	point/N	story/N	floor/N	layer/N
+back/N	binding/N
+organisation/N	organization/N	arrangement/N	establishment/N	administration/N	system/N	constitution/N
+cable/N	line/N
+temper/N	mood/N
+job/N	line/N	business/N	task/N	problem/N
+gram/N	gm/N
+authorization/N	authority/N
+attitude/N	position/N
+muster/N	draft/N
+bunch/N	gang/N	crowd/N	crew/N	lot/N
+authority/N	authorization/N	confidence/N	office/N	bureau/N	agency/N
+number/N	turn/N	bit/N	act/N	issue/N
+notice/N	notification/N	poster/N	card/N	bill/N
+ken/N	sight/N
+shuttle/N	bird/N
+memory/N	store/N	storage/N
+commons/N	green/N	common/N
+call/N	claim/N	song/N
+america/N	us/N	u.s./N
+course/N	class/N	line/N	track/N	path/N
+improvement/N	advance/N
+attention/N	care/N	aid/N
+raft/N	spate/N	sight/N	pot/N	peck/N	mess/N	mass/N	lot/N	deal/N
+sight/N	ken/N	view/N	survey/N	spate/N	raft/N	pot/N	peck/N	mess/N	mass/N	lot/N	deal/N
+vicinity/N	neighborhood/N
+technology/N	engineering/N
+fit/N	burst/N
+flow/N	stream/N	period/N
+informant/N	witness/N
+thing/N	affair/N
+organizer/N	pda/N
+liaison/N	affair/N	link/N	contact/N
+scope/N	range/N	setting/N	telescope/N
+sword/N	blade/N
+choice/N	pick/N	selection/N	option/N	alternative/N
+ism/N	philosophy/N
+police/N	law/N
+consequence/N	result/N	outcome/N	issue/N	event/N	effect/N	moment/N
+swing/N	cut/N
+competition/N	contention/N
+sally/N	crack/N
+country/N	land/N	state/N	nation/N	area/N
+worry/N	headache/N	trouble/N
+piece/N	bit/N	slice/N	patch/N	man/N
+fix/N	mess/N	jam/N	hole/N	repair/N
+doll/N	bird/N
+crowd/N	crew/N	bunch/N
+class/N	grade/N	form/N	course/N	family/N	category/N	year/N	division/N
+place/N	spot/N	property/N	position/N	home/N	situation/N	post/N	office/N	station/N	seat/N	space/N
+penny/N	cent/N
+tantrum/N	fit/N
+focus/N	direction/N
+revenue/N	taxation/N
+guerrilla/N	insurgent/N	guerilla/N
+al/N	alabama/N
+voting/N	ballot/N
+meantime/N	lag/N	interim/N
+principle/N	rule/N
+snapshot/N	shot/N
+blast/N	bang/N	gust/N	blow/N	fire/N	attack/N
+artistry/N	art/N
+resort/N	repair/N
+study/N	work/N	report/N	subject/N	field/N
+measure/N	touchstone/N	standard/N	quantity/N	step/N	bill/N	metre/N
+scale/N	plate/N
+wheel/N	rack/N	bike/N	bicycle/N
+license/N	permit/N
+dog/N	frank/N
+ascent/N	rise/N
+document/N	papers/N
+rating/N	evaluation/N
+pig/N	bull/N
+counsel/N	guidance/N	direction/N
+speech/N	language/N	delivery/N	lecture/N
+uncertainty/N	doubt/N
+alarm/N	alert/N
+origin/N	beginning/N	stock/N	line/N	blood/N
+proceeds/N	return/N	issue/N
+m/N	yard/N	thousand/N
+britain/N	uk/N	u.k./N
+policy/N	insurance/N
+notification/N	notice/N
+affirmation/N	statement/N	assertion/N
+figure/N	form/N	name/N	number/N
+way/N	mode/N	means/N	agency/N	path/N	direction/N	room/N
+slam/N	shot/N
+inside/N	interior/N
+loss/N	red/N	release/N
+us/N	u.s./N	america/N
+paper/N	report/N	newspaper/N
+grace/N	thanksgiving/N
+reserve/N	reservation/N
+lead/N	track/N	star/N	wind/N
+consumption/N	use/N
+party/N	company/N
+leaflet/N	pamphlet/N
+touchstone/N	measure/N
+company/N	society/N	party/N
+ticker/N	heart/N	watch/N
+club/N	society/N	order/N	clubhouse/N	nightclub/N
+mood/N	mode/N
+phone/N	telephone/N	headphone/N
+europe/N	eu/N
+minute/N	second/N	moment/N	bit/N	hour/N
+skunk/N	rat/N	pot/N	grass/N
+researcher/N	investigator/N
+bull/N	samson/N	pig/N
+condition/N	precondition/N	term/N	consideration/N	circumstance/N
+limit/N	bound/N	limitation/N
+oversight/N	supervision/N
+crew/N	gang/N	crowd/N	bunch/N
+tablet/N	pill/N
+configuration/N	form/N
+horse/N	knight/N
+inflammation/N	firing/N
+dodger/N	fox/N
+text/N	textbook/N
+aggregate/N	total/N
+hour/N	minute/N
+key/N	headstone/N
+champion/N	supporter/N	friend/N	wizard/N	star/N
+news/N	intelligence/N
+trouble/N	fuss/N	worry/N
+ad/N	advertising/N
+word/N	news/N	intelligence/N	son/N	parole/N	password/N	discussion/N	book/N	bible/N
+muhammad/N	mohammed/N
+email/N	e-mail/N
+textbook/N	text/N
+california/N	ca/N
+occupation/N	line/N	job/N	business/N
+opposition/N	confrontation/N	opponent/N	foe/N	enemy/N
+attendee/N	attendant/N
+car/N	machine/N
+backlash/N	rebound/N
+supporter/N	friend/N	champion/N	help/N	assistant/N
+lawsuit/N	cause/N	case/N
+trio/N	iii/N
+mail/N	post/N
+face/N	expression/N	side/N
+rack/N	wheel/N
+grass/N	pasture/N	skunk/N	pot/N
+curriculum/N	program/N
+guy/N	cat/N
+introduction/N	debut/N	institution/N	founding/N	foundation/N	creation/N
+jet/N	green/N
+equal/N	match/N
+education/N	training/N
+pipe/N	tube/N
+curb/N	check/N
+race/N	raceway/N
+pasture/N	grass/N
+diarrhoea/N	diarrhea/N
+round/N	turn/N	circle/N
+labor/N	task/N	project/N
+understanding/N	agreement/N	sympathy/N	reason/N
+accusation/N	charge/N
+contamination/N	pollution/N
+threat/N	terror/N
+tub/N	bath/N
+development/N	growth/N
+effect/N	result/N	outcome/N	issue/N	event/N	consequence/N	force/N	core/N
+grounds/N	yard/N	reason/N	cause/N
+broom/N	heather/N
+pct/N	percent/N
+federal/N	fed/N
+top/N	summit/N	peak/N
+television/N	tv/N
+dip/N	drop/N
+moment/N	minute/N	second/N	bit/N	consequence/N
+violation/N	assault/N
+pda/N	organizer/N
+shot/N	shooting/N	crack/N	snapshot/N	slam/N
+noodle/N	bean/N
+category/N	class/N
+pennsylvania/N	penn/N
+ring/N	gang/N	band/N
+boot/N	kick/N	charge/N	bang/N
+train/N	string/N	gear/N
+bean/N	noodle/N
+friend/N	supporter/N	champion/N
+center/N	heart/N	eye/N	centre/N	substance/N	meat/N	core/N
+hunt/N	search/N
+selection/N	option/N	choice/N	pick/N
+hole/N	mess/N	jam/N	fix/N
+iii/N	trio/N
+foe/N	enemy/N
+sign/N	signal/N	house/N
+raceway/N	track/N
+man/N	human/N	gentleman/N	piece/N	world/N
+affair/N	matter/N	liaison/N	involvement/N	function/N
+gang/N	crowd/N	crew/N	bunch/N
+regime/N	authorities/N
+film/N	picture/N	movie/N
+someone/N	person/N	individual/N
+engineering/N	technology/N
+supervision/N	oversight/N
+living/N	life/N	support/N
+motorcar/N	car/N
+statement/N	assertion/N	affirmation/N	command/N
+practice/N	exercise/N	drill/N
+baby/N	child/N
+workout/N	exercise/N
+check/N	stay/N	arrest/N	confirmation/N	chip/N	curb/N
+return/N	yield/N	proceeds/N	issue/N	counter/N
+john/N	can/N	trick/N
+second/N	s/N	moment/N	minute/N	bit/N
+contention/N	controversy/N	competition/N
+inquiry/N	question/N
+fuss/N	trouble/N
+diarrhea/N	diarrhoea/N
+cap/N	ceiling/N	capital/N
+floor/N	story/N	level/N	base/N
+heather/N	broom/N
+connection/N	link/N	association/N
+item/N	detail/N	point/N
+alert/N	alarm/N
+administration/N	organization/N	organisation/N	establishment/N	presidency/N
+radio/N	wireless/N
+lot/N	spate/N	sight/N	raft/N	pot/N	peck/N	mess/N	mass/N	deal/N	portion/N	bunch/N	set/N	circle/N	band/N
+aviation/N	air/N
+training/N	education/N
+installment/N	episode/N
+expression/N	face/N	reflexion/N	reflection/N	construction/N
+ball/N	nut/N	egg/N
+contribution/N	part/N
+family/N	household/N	house/N	home/N	class/N	category/N
+tube/N	pipe/N
+accession/N	access/N
+fox/N	dodger/N
+tour/N	turn/N
+status/N	condition/N
+association/N	connection/N
+provision/N	supply/N	preparation/N
+band/N	lot/N	circle/N	ring/N
+vote/N	ballot/N
+quality/N	character/N
+application/N	coating/N
+manufacturer/N	maker/N	producer/N
+giant/N	hulk/N	monster/N
+system/N	organization/N	organisation/N	arrangement/N
+force/N	power/N	personnel/N	violence/N	strength/N	effect/N
+potty/N	pot/N	can/N
+lance/N	lancet/N
+necessity/N	requirement/N
+book/N	record/N	word/N	bible/N
+push/N	energy/N
+station/N	post/N
+attack/N	fire/N	blast/N	attempt/N	approach/N
+rubber/N	safety/N
+demonstrator/N	protester/N
+mister/N	mr/N
+blade/N	sword/N	steel/N
+surgery/N	operation/N
+core/N	substance/N	meat/N	heart/N	center/N	effect/N
+negotiation/N	dialogue/N
+ground/N	land/N	reason/N	basis/N
+limitation/N	limit/N	restriction/N
+name/N	figure/N
+work/N	employment/N	study/N
+pepper/N	capsicum/N
+ice/N	trash/N	glass/N	chalk/N
+slice/N	piece/N	cut/N
+trash/N	ice/N	glass/N	chalk/N
+dust/N	debris/N
+kid/N	child/N
+power/N	office/N	force/N	index/N	king/N
+draft/N	muster/N
+sham/N	fraud/N
+percentage/N	pct/N	share/N	portion/N	part/N
+preparation/N	provision/N	training/N	cooking/N
+example/N	instance/N	model/N	lesson/N	case/N	exercise/N
+task/N	project/N	labor/N	job/N
+region/N	area/N	neighborhood/N
+business/N	occupation/N	line/N	job/N
+assertion/N	statement/N	affirmation/N
+crash/N	collapse/N
+upgrade/N	ascent/N	rise/N
+effort/N	attempt/N	movement/N	cause/N	campaign/N	deed/N
+history/N	account/N
+follow-up/N	review/N
+accordance/N	accord/N
+colleague/N	co-worker/N
+nation/N	land/N	country/N
+video/N	tv/N	television/N
+guidance/N	counsel/N	direction/N
+taxation/N	revenue/N
+agreement/N	accord/N	arrangement/N
+assembly/N	gathering/N
+slur/N	spot/N
+can/N	tail/N	stern/N	seat/N	potty/N	pot/N	john/N
+basis/N	foundation/N	cornerstone/N	base/N
+s/N	south/N	siemens/N
+director/N	manager/N
+context/N	circumstance/N
+bicycle/N	bike/N
+life/N	living/N
+rally/N	exchange/N
+record/N	book/N
+grain/N	cereal/N
+process/N	operation/N
+supply/N	provision/N
+actor/N	player/N	worker/N
+chip/N	bit/N	check/N
+detail/N	item/N
+storage/N	store/N	depot/N	memory/N
+alabama/N	al/N
+field/N	subject/N	study/N	arena/N	area/N	airfield/N
+pal/N	brother/N
+central/N	exchange/N
+wood/N	forest/N
+pot/N	potty/N	can/N	spate/N	sight/N	raft/N	peck/N	mess/N	mass/N	lot/N	deal/N	tummy/N	skunk/N	grass/N
+cereal/N	grain/N
+setting/N	scope/N	mount/N
+universe/N	existence/N	creation/N	population/N
+front/N	movement/N
+reflection/N	reflexion/N	expression/N
+package/N	packet/N	software/N
+attendant/N	attendee/N
+sweep/N	slam/N
+accord/N	accordance/N	treaty/N
+ca/N	california/N
+outrage/N	scandal/N
+papers/N	document/N
+option/N	alternative/N	selection/N	pick/N	choice/N
+role/N	office/N	function/N	part/N	character/N	use/N
+cost/N	price/N
+foot/N	foundation/N	base/N
+branch/N	arm/N	leg/N
+silver/N	ag/N
+establishment/N	organisation/N	constitution/N	institution/N	organization/N	administration/N
+index/N	power/N
+claim/N	call/N
+don/N	father/N
+substance/N	meat/N	heart/N	core/N	center/N	means/N	message/N
+justice/N	judge/N
+cat/N	guy/N
+stream/N	flow/N
+qaeda/N	al-qaida/N
+ms/N	mississippi/N	sm/N	ms./N
+protester/N	demonstrator/N
+edge/N	bound/N	margin/N
+person/N	someone/N	individual/N
+thought/N	view/N	opinion/N
+mr/N	mister/N
+collapse/N	crash/N
+duty/N	obligation/N
+ba/N	ab/N
+run/N	trial/N	test/N	streak/N	campaign/N
+stake/N	post/N
+bread/N	scratch/N	dough/N
+drill/N	practice/N	exercise/N
+assistance/N	aid/N	help/N
+framework/N	model/N
+point/N	level/N	degree/N	item/N	detail/N	peak/N	spot/N	period/N	head/N
+relation/N	congress/N
+addition/N	increase/N	gain/N	accession/N
+sun/N	sunday/N
+subject/N	topic/N	matter/N	issue/N	study/N	field/N	case/N	national/N
+constitution/N	organization/N	organisation/N	establishment/N	makeup/N
+panel/N	board/N
+model/N	framework/N	example/N
+authorities/N	government/N
+sentence/N	conviction/N	time/N
+bird/N	doll/N	shuttle/N
+boost/N	rise/N	hike/N
+net/N	profit/N	earnings/N	network/N
+king/N	power/N
+steel/N	blade/N
+estate/N	land/N
+host/N	server/N
+bond/N	bail/N	attachment/N	adhesion/N
+target/N	objective/N	object/N	aim/N
+share/N	percentage/N	part/N	portion/N	contribution/N
+quarter/N	tail/N	stern/N
+post/N	spot/N	situation/N	position/N	place/N	office/N	mail/N	stake/N
+movement/N	motion/N	move/N	front/N	effort/N	cause/N	campaign/N
+use/N	exercise/N	employment/N	role/N	function/N	consumption/N
+peak/N	prime/N	flower/N	top/N	summit/N	point/N	bill/N
+access/N	accession/N	approach/N
+dose/N	acid/N
+exercise/N	use/N	employment/N	practice/N	drill/N	example/N
+tap/N	strike/N
+debut/N	introduction/N
+control/N	command/N
+custody/N	detention/N
+drop/N	dip/N	cliff/N
+headstone/N	key/N
+jam/N	mess/N	hole/N	fix/N	press/N
+lieutenant/N	deputy/N
+peer/N	equal/N
+requirement/N	necessity/N	prerequisite/N
+division/N	part/N	class/N
+opening/N	possibility/N	initiative/N
+interim/N	meantime/N	lag/N
+side/N	position/N	english/N
+championship/N	backup/N
+weapon/N	arm/N
+congress/N	relation/N
+gear/N	train/N
+foundation/N	cornerstone/N	basis/N	base/N	foot/N	introduction/N	institution/N	founding/N	creation/N
+organization/N	system/N	organisation/N	arrangement/N	establishment/N	administration/N	constitution/N
+nightclub/N	club/N
+possibility/N	opening/N
+tool/N	peter/N	dick/N
+circle/N	lot/N	band/N	circuit/N	rope/N	round/N
+line/N	cable/N	course/N	stock/N	origin/N	blood/N	occupation/N	job/N	business/N	air/N	note/N
+perspective/N	position/N
+acid/N	dose/N
+neighborhood/N	region/N
+heart/N	ticker/N	middle/N	eye/N	centre/N	center/N	substance/N	meat/N	core/N
+herald/N	precursor/N
+stay/N	check/N	arrest/N
+relief/N	ease/N	backup/N
+command/N	bid/N	control/N	statement/N
+acceptance/N	adoption/N
+circuit/N	tour/N	circle/N
+pressure/N	press/N
+toad/N	frog/N
+stage/N	point/N	level/N	degree/N	leg/N
+park/N	green/N	commons/N	common/N
+dick/N	tool/N	peter/N
+position/N	view/N	perspective/N	attitude/N	status/N	spot/N	situation/N	post/N	place/N	office/N	side/N
+uk/N	u.k./N	britain/N
+confrontation/N	opposition/N
+household/N	house/N	home/N	family/N
+english/N	side/N
+winner/N	success/N
+funding/N	financing/N
