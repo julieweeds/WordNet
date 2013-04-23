@@ -41,7 +41,7 @@ if __name__ =="__main__":
     adja = 1 #adja and adjb not used in this program
     adjb = 1
 
-    iterations=0
+    iterations=1
     while(iterations<2):
         if iterations == 1:
             k=1000
