@@ -10,7 +10,7 @@ def configure(arguments):
 #metric
     parameters["metric"]="cosine"
 #feature type
-    parameters["features"]="windows"
+    parameters["features"]="deps"
 
 
     for argument in arguments:

@@ -10,9 +10,18 @@ import matplotlib.pyplot as plt
 def show(x,yr,yp,yf,title):
 #    xp=numpy.linspace(0,1,100)
     plt.plot(x,yr,'.',x,yp,'x',x,yf,'o')
-    plt.ylim(0,0.5)
+    plt.ylim(0,1)
     plt.title(title)
     plt.show()
+
+def mymode(dist):
+    max=0
+    maxkey=""
+    for key in dist.keys():
+        if dist[key]>max:
+            max=dist[key]
+            maxkey = key
+    return maxkey
 
 
 if __name__ =="__main__":
@@ -34,15 +43,19 @@ if __name__ =="__main__":
 
         #read simcache = thesaurus
     infile = parameters["simsfile"]
-    k = 100 #max number of neighbours to consider
-    kstep=-1
-    sim =0
-    simstep=-kstep*1.0/k
+
     adja = 1 #adja and adjb not used in this program
     adjb = 1
 
-    iterations=1
+    iterations=0
     while(iterations<2):
+        k = 100 #max number of neighbours to consider
+        kstep=-10
+        sim =0
+        if parameters["metric"]=="linadj":
+            simstep=0.1
+        else:
+            simstep=0.01
         if iterations == 1:
             k=1000
 
@@ -57,6 +70,11 @@ if __name__ =="__main__":
         currentsim=sim
         recall={}
         precision={}
+        fscore={}
+        averagek={}
+        minkset={}
+        maxkset={}
+        modek={}
         while currentk>0:
 
             if iterations==0:
@@ -66,6 +84,11 @@ if __name__ =="__main__":
             count=0
             totalrecall=0
             totalprecision=0
+            totalf=0
+            totalk=0
+            mink=1000
+            maxk=0
+            kvaluedist={}
             for thisvector in mythes.vectordict.values():
                 thisword = thisvector.word
                 thispos = thisvector.pos
@@ -74,17 +97,50 @@ if __name__ =="__main__":
                 gs = myfilter[thispos].returnsyns(thisword+'/'+thispos)
                 #print gs
                 if len(gs) > 0:
-                    totalrecall += thisvector.evaluaterecall(gs)
-                    totalprecision += thisvector.evaluateprecision(gs)
+                    rec = thisvector.evaluaterecall(gs)
+                    totalrecall+=rec
+                    prec = thisvector.evaluateprecision(gs)
+                    totalprecision+=prec
+                    if rec*prec>0:
+                        fs=2*rec*prec/(rec+prec)
+                    else:
+                        fs=0
+                    totalf+=fs
+                    thisk=thisvector.getk()
+                    totalk+=thisk
+                    if thisk in kvaluedist.keys():
+                        kvaluedist[thisk]+=1
+                    else:
+                        kvaluedist[thisk]=1
+                    if thisk>maxk:
+                        maxk=thisk
+                    if thisk<mink:
+                        mink=thisk
                     count+=1
-            if iterations==0:
-                recall[currentk]=totalrecall*1.0/count
-                precision[currentk]=totalprecision*1.0/count
-                print currentk, recall[currentk]
-            else:
-                recall[currentsim]=totalrecall*1.0/count
-                precision[currentsim]=totalprecision*1.0/count
-                print currentk, recall[currentsim]
+            if totalrecall*totalprecision > 0:
+                if iterations==0:
+                    recall[currentk]=totalrecall*1.0/count
+                    precision[currentk]=totalprecision*1.0/count
+                    fscore[currentk]=totalf*1.0/count
+                    print currentk, recall[currentk],fscore[currentk]
+                else:
+                    recall[currentsim]=totalrecall*1.0/count
+                    precision[currentsim]=totalprecision*1.0/count
+                    fscore[currentsim]=totalf*1.0/count
+                    averagek[currentsim]=totalk*1.0/count
+                    modek[currentsim]=mymode(kvaluedist)
+                    minkset[currentsim]=mink
+                    maxkset[currentsim]=maxk
+                    print currentsim, recall[currentsim],fscore[currentsim],averagek[currentsim], modek[currentsim], mink, maxk
+            if currentk<25:
+                kstep=-1
+            if currentsim>0.25:
+                if parameters["metric"]=="linadj":
+                    if currentsim>0.6:
+                        simstep=0.01
+                else:
+                    simstep=0.1
+
             currentk+=kstep
             currentsim+=simstep
 
@@ -98,22 +154,23 @@ if __name__ =="__main__":
             xx.append(k)
             yrecall.append(recall[k])
             yprecision.append(precision[k])
-            fscore=2*recall[k]*precision[k]/(recall[k]+precision[k])
-            if fscore > peakf:
-                peakf=fscore
+            if fscore[k] > peakf:
+                peakf=fscore[k]
                 peakfatk=k
-            yfscore.append(fscore)
+            yfscore.append(fscore[k])
         x=numpy.array(xx)
         yr=numpy.array(yrecall)
         yp=numpy.array(yprecision)
         yf=numpy.array(yfscore)
-        if iterations==1:
+        if iterations==0:
             mytitle="Recall, Precision and F Against k for "+parameters["metric"]+" with "+parameters["features"]+" features"
         else:
             mytitle="Recall, Precision and F Against sim threshold for "+parameters["metric"]+" with "+parameters["features"]+" features"
         print "Peak value of F is "+str(peakf)+" at x = "+str(peakfatk)
         print "Corresponding recall = "+str(recall[peakfatk])
         print "Corresponding precision = "+str(precision[peakfatk])
+        if iterations==1:
+            print "Corresponding average k = "+str(averagek[peakfatk])
         show(x,yr,yp,yf,mytitle)
         iterations+=1
 
