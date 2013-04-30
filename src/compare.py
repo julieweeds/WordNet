@@ -33,7 +33,7 @@ if __name__ =="__main__":
     myfilter={}
     gstotal=0
     inwords=[]
-    for pos in files.keys():
+    for pos in parameters["pos"]:
         filename=parameters["out"]+files[pos]
         myfilter[pos]=filter.Filter([],filename,inwords)
         gstotal+=myfilter[pos].total
@@ -60,6 +60,7 @@ if __name__ =="__main__":
             k=1000
 
         mythes=thesaurus.Thesaurus(infile,infile,True,parameters["windows"],k,adja,adjb)
+        thesaurus.Thesaurus.byblo=parameters["byblo"]
         #mythes.readvectors() #won't actually read vectors as simcached = True
         mythes.filter=True
         mythes.filterwords=inwords
@@ -84,6 +85,9 @@ if __name__ =="__main__":
             count=0
             totalrecall=0
             totalprecision=0
+            totalintersect=0
+            totaltarget=0
+            totalproduced=0
             totalf=0
             totalk=0
             mink=1000
@@ -97,10 +101,27 @@ if __name__ =="__main__":
                 gs = myfilter[thispos].returnsyns(thisword+'/'+thispos)
                 #print gs
                 if len(gs) > 0:
-                    rec = thisvector.evaluaterecall(gs)
-                    totalrecall+=rec
-                    prec = thisvector.evaluateprecision(gs)
-                    totalprecision+=prec
+                    #rec = thisvector.evaluaterecall(gs)
+                    #totalrecall+=rec
+                    #prec = thisvector.evaluateprecision(gs)
+                    #totalprecision+=prec
+                    (intersect,target)=thisvector.evaluaterecall2(gs)
+                    (intersect2,produced)=thisvector.evaluateprecision2(gs)
+                    if intersect==intersect2:
+                        rec=intersect*1.0/target
+                        if produced > 0:
+                           prec=intersect*1.0/produced
+                        else:
+                           prec =0
+                        totalrecall+=rec
+                        totalprecision+=prec
+                        totalintersect+=intersect
+                        totaltarget+=target
+                        totalproduced+=produced
+
+                    else:
+                        print "Error: intersects should be same size on precision and recall for "+thisword
+                        exit(1)
                     if rec*prec>0:
                         fs=2*rec*prec/(rec+prec)
                     else:
@@ -118,20 +139,30 @@ if __name__ =="__main__":
                         mink=thisk
                     count+=1
             if totalrecall*totalprecision > 0:
+                itrecall=totalintersect*1.0/totaltarget
+                itprecision=totalintersect*1.0/totalproduced
+                itf=itrecall*itprecision*2.0/(itrecall+itprecision)
                 if iterations==0:
-                    recall[currentk]=totalrecall*1.0/count
-                    precision[currentk]=totalprecision*1.0/count
-                    fscore[currentk]=totalf*1.0/count
-                    print currentk, recall[currentk],fscore[currentk]
+                    #recall[currentk]=totalrecall*1.0/count
+                    #precision[currentk]=totalprecision*1.0/count
+                    #fscore[currentk]=totalf*1.0/count
+                    recall[currentk]=itrecall
+                    precision[currentk]=itprecision
+                    fscore[currentk]=itf
+                    print currentk, itrecall,itf
                 else:
-                    recall[currentsim]=totalrecall*1.0/count
-                    precision[currentsim]=totalprecision*1.0/count
-                    fscore[currentsim]=totalf*1.0/count
+                    #recall[currentsim]=totalrecall*1.0/count
+                    #precision[currentsim]=totalprecision*1.0/count
+                    #fscore[currentsim]=totalf*1.0/count
                     averagek[currentsim]=totalk*1.0/count
-                    modek[currentsim]=mymode(kvaluedist)
-                    minkset[currentsim]=mink
-                    maxkset[currentsim]=maxk
-                    print currentsim, recall[currentsim],fscore[currentsim],averagek[currentsim], modek[currentsim], mink, maxk
+                    recall[currentsim]=itrecall
+                    precision[currentsim]=itprecision
+                    fscore[currentsim]=itf
+                    #modek[currentsim]=mymode(kvaluedist)
+                    #minkset[currentsim]=mink
+                    #maxkset[currentsim]=maxk
+                    #print currentsim, recall[currentsim],fscore[currentsim],averagek[currentsim], modek[currentsim], mink, maxk
+                    print currentsim,itrecall,itf,averagek[currentsim]
             if currentk<25:
                 kstep=-1
             if currentsim>0.25:

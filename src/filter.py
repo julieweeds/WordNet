@@ -98,8 +98,8 @@ if __name__ =="__main__":
 
 
     #apply filter to synsets
-    for file in files.values():
-        filename=parameters["out"]+file
+    for pos in parameters["pos"]:
+        filename=parameters["out"]+files[pos]
         myfilter=Filter(words,filename,[])
         myfilter.applyfilter()
         myfilter.output()

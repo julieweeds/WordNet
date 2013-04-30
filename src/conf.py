@@ -11,6 +11,10 @@ def configure(arguments):
     parameters["metric"]="cosine"
 #feature type
     parameters["features"]="deps"
+#byblo neighbours
+    parameters["byblo"]=False
+#POS
+    parameters["pos"]=["N","V","J","R"]
 
 
     for argument in arguments:
@@ -37,6 +41,10 @@ def configure(arguments):
             parameters["features"]="win"
         if argument == "deps":
             parameters["features"]="dep"
+        if argument == "byblo":
+            parameters["byblo"]=True
+        if argument =="nouns":
+            parameters["pos"]=["N"]
 
 
     parameters = setfilenames(parameters)
@@ -55,9 +63,12 @@ def setfilenames(parameters):
     if parameters["local"]:
         parameters["parent"]="/Volumes/LocalScratchHD/juliewe/Documents/workspace/WordNet/2.1/dict/"
         parameters["out"]="/Volumes/LocalScratchHD/juliewe/Documents/workspace/WordNet/data/"
-        parameters["simsdir"]="/Volumes/LocalScratchHD/juliewe/Documents/workspace/STS/data/trial/STS2012-train/"
-    parameters["simsfile"]=parameters["simsdir"]+parameters["metric"]+"_"+parameters["features"]+"_sims.cached"
+        #parameters["simsdir"]="/Volumes/LocalScratchHD/juliewe/Documents/workspace/STS/data/trial/STS2012-train/"
+        parameters["simsdir"]="/Volumes/LocalScratchHD/juliewe/Documents/workspace/ThesEval/data/giga_t10/"
 
-
+    if parameters["byblo"]:
+        parameters["simsfile"]=parameters["simsdir"]+"nouns-deps.byblo"
+    else:
+        parameters["simsfile"]=parameters["simsdir"]+parameters["metric"]+"_"+parameters["features"]+"_sims.cached"
     return parameters
 
