@@ -23,30 +23,18 @@ def mymode(dist):
             maxkey = key
     return maxkey
 
+def loadthes(k):
 
-if __name__ =="__main__":
+    mythes=thesaurus.Thesaurus(infile,infile,True,parameters["windows"],k,adja,adjb,False)
+    thesaurus.Thesaurus.byblo=parameters["byblo"]
+    #mythes.readvectors() #won't actually read vectors as simcached = True
+    mythes.filter=True
+    mythes.filterwords=inwords #only load neighbour sets for words which have synsets
+    mythes.allpairssims(parameters["metric"]) #this will reload cached values
+    return mythes
 
-    files={"N":"index.noun.synonyms.filtered","V":"index.verb.synonyms.filtered","J":"index.adj.synonyms.filtered","R":"index.adv.synonyms.filtered"}
-    parameters=conf.configure(sys.argv)
 
-     #read synsets = GS
-    myfilter={}
-    gstotal=0
-    inwords=[]
-    for pos in parameters["pos"]:
-        filename=parameters["out"]+files[pos]
-        myfilter[pos]=filter.Filter([],filename,inwords)
-        gstotal+=myfilter[pos].total
-        inwords=myfilter[pos].inwords
-
-    print "Total synonym lists for evaluation is "+str(gstotal)
-
-        #read simcache = thesaurus
-    infile = parameters["simsfile"]
-
-    adja = 1 #adja and adjb not used in this program
-    adjb = 1
-
+def analyseF():
     iterations=0
     while(iterations<2):
         k = 100 #max number of neighbours to consider
@@ -58,14 +46,7 @@ if __name__ =="__main__":
             simstep=0.01
         if iterations == 1:
             k=1000
-
-        mythes=thesaurus.Thesaurus(infile,infile,True,parameters["windows"],k,adja,adjb)
-        thesaurus.Thesaurus.byblo=parameters["byblo"]
-        #mythes.readvectors() #won't actually read vectors as simcached = True
-        mythes.filter=True
-        mythes.filterwords=inwords
-        mythes.allpairssims(parameters["metric"]) #this will reload cached values
-
+        mythes=loadthes(k)
 
         currentk=k
         currentsim=sim
@@ -110,9 +91,9 @@ if __name__ =="__main__":
                     if intersect==intersect2:
                         rec=intersect*1.0/target
                         if produced > 0:
-                           prec=intersect*1.0/produced
+                            prec=intersect*1.0/produced
                         else:
-                           prec =0
+                            prec =0
                         totalrecall+=rec
                         totalprecision+=prec
                         totalintersect+=intersect
@@ -205,4 +186,83 @@ if __name__ =="__main__":
         show(x,yr,yp,yf,mytitle)
         iterations+=1
 
+def nearestsyn():
+    maxk=100
+    mythes=loadthes(maxk)
+    #mythes.topk(maxk)  #don't need this as is within allpairsims() / readsims()
 
+    kset=[]
+    simset=[]
+    count=0
+    ktotal=0
+    simtotal=0
+    notinmaxk=0
+    for thisvector in mythes.vectordict.values():
+        count+=1
+        copytuplelist=[]
+        for item in thisvector.tuplelist:
+            copytuplelist.append(item)
+        copytuplelist.reverse()
+        print len(thisvector.tuplelist)
+        notfound = True
+        k=0
+        thisword=thisvector.word
+        thispos=thisvector.pos
+        gs = myfilter[thispos].returnsyns(thisword+'/'+thispos)
+        while notfound:
+            if len(copytuplelist)==0:
+                notfound=False
+                notinmaxk+=1
+                print "NOT FOUND "+thisword+"/"+thispos
+                print gs
+                print thisvector.tuplelist
+
+
+            else:
+                k+=1
+                (sim,neigh)=copytuplelist.pop()
+                if neigh in gs:
+                    notfound=False
+                    notinmaxk+=1
+                    print "FOUND "+thisword+"/"+thispos
+                    print gs
+                    print thisvector.tuplelist
+                    exit()
+
+        kset.append(k)
+        simset.append(sim)
+        ktotal+=k
+        simtotal+=sim
+    kmean=ktotal*1.0/count
+    simmean=simtotal/count
+    propnotink=notinmaxk*1.0/count
+    print "Mean k required to find 1 synonym = "+str(kmean)
+    print "Mean sim required to find 1 synonym = "+str(simmean)
+    print "Proportion where no synonym in "+str(maxk)+" nearest neighbouts = "+str(propnotink)
+
+if __name__ =="__main__":
+
+    files={"N":"index.noun.synonyms.filtered","V":"index.verb.synonyms.filtered","J":"index.adj.synonyms.filtered","R":"index.adv.synonyms.filtered"}
+    parameters=conf.configure(sys.argv)
+
+     #read synsets = GS
+    myfilter={}
+    gstotal=0
+    inwords=[]
+    for pos in parameters["pos"]:
+        filename=parameters["out"]+files[pos]
+        myfilter[pos]=filter.Filter([],filename,inwords)
+        gstotal+=myfilter[pos].total
+        inwords=myfilter[pos].inwords
+
+    print "Total synonym lists for evaluation is "+str(gstotal)
+
+        #read simcache = thesaurus
+    infile = parameters["simsfile"]
+
+    adja = 1 #adja and adjb not used in this program
+    adjb = 1
+
+#    analyseF()  #analyse precision recall and F at different ks and sim thresholds and plot curves
+
+    nearestsyn() # find nearest synonym for each word and analyse k required k using k and sim thresholds
