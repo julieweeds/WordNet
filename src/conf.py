@@ -10,7 +10,7 @@ def configure(arguments):
 #metric
     parameters["metric"]="cosine"
 #feature type
-    parameters["features"]="deps"
+    parameters["features"]="dep"
 #byblo neighbours
     parameters["byblo"]=False
 #POS
@@ -64,10 +64,10 @@ def setfilenames(parameters):
         parameters["parent"]="/Volumes/LocalScratchHD/juliewe/Documents/workspace/WordNet/2.1/dict/"
         parameters["out"]="/Volumes/LocalScratchHD/juliewe/Documents/workspace/WordNet/data/"
         #parameters["simsdir"]="/Volumes/LocalScratchHD/juliewe/Documents/workspace/STS/data/trial/STS2012-train/"
-        parameters["simsdir"]="/Volumes/LocalScratchHD/juliewe/Documents/workspace/ThesEval/data/giga_t10/"
+        parameters["simsdir"]="/Volumes/LocalScratchHD/juliewe/Documents/workspace/ThesEval/data/giga_t100/"
 
     if parameters["byblo"]:
-        parameters["simsfile"]=parameters["simsdir"]+"nouns-deps.byblo"
+        parameters["simsfile"]=parameters["simsdir"]+"nouns-"+parameters["features"]+"_k1000.byblo"
     else:
         parameters["simsfile"]=parameters["simsdir"]+parameters["metric"]+"_"+parameters["features"]+"_sims.cached"
     return parameters

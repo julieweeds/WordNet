@@ -6,6 +6,7 @@ import sys
 import filter
 import numpy
 import matplotlib.pyplot as plt
+import scipy
 
 def show(x,yr,yp,yf,title):
 #    xp=numpy.linspace(0,1,100)
@@ -186,8 +187,43 @@ def analyseF():
         show(x,yr,yp,yf,mytitle)
         iterations+=1
 
+def computesimsize(mythes,threshold):
+    count=0
+    totalk=0
+    notinmaxk=0
+    kset=[]
+    for thisvector in mythes.vectordict.values():
+        count+=1
+        k=0
+        copytuplelist=[]
+        for item in thisvector.tuplelist:
+            copytuplelist.append(item)
+        copytuplelist.reverse()
+
+
+        notfound = True
+        while notfound:
+            if len(copytuplelist)>0:
+                (score,neigh)=copytuplelist.pop()
+                if score < threshold:
+                    notfound=False
+                else:
+                    k+=1
+                    totalk+=1
+            else:
+                notfound=False
+                notinmaxk+=1
+        kset.append(k)
+    propnotinmaxk = notinmaxk*1.0/count
+    print "Warning: proportion is "+str(propnotinmaxk)+" where neighbour sets do not contain a similarity less than or equal to "+str(threshold)
+    mean=totalk*1.0/count
+    median=scipy.stats.cmedian(numpy.array(kset))
+
+    return (mean,median)
+
+
 def nearestsyn():
-    maxk=100
+    maxk=1000
     mythes=loadthes(maxk)
     #mythes.topk(maxk)  #don't need this as is within allpairsims() / readsims()
 
@@ -203,19 +239,22 @@ def nearestsyn():
         for item in thisvector.tuplelist:
             copytuplelist.append(item)
         copytuplelist.reverse()
-        print len(thisvector.tuplelist)
+        #print len(thisvector.tuplelist)
         notfound = True
         k=0
         thisword=thisvector.word
         thispos=thisvector.pos
         gs = myfilter[thispos].returnsyns(thisword+'/'+thispos)
+        neverfound=False
         while notfound:
             if len(copytuplelist)==0:
                 notfound=False
                 notinmaxk+=1
-                print "NOT FOUND "+thisword+"/"+thispos
-                print gs
-                print thisvector.tuplelist
+                neverfound=True
+                #print "NOT FOUND "+thisword+"/"+thispos
+                #print gs
+                #print thisvector.tuplelist
+                #exit()
 
 
             else:
@@ -223,22 +262,31 @@ def nearestsyn():
                 (sim,neigh)=copytuplelist.pop()
                 if neigh in gs:
                     notfound=False
-                    notinmaxk+=1
-                    print "FOUND "+thisword+"/"+thispos
-                    print gs
-                    print thisvector.tuplelist
-                    exit()
+                    #print "FOUND "+thisword+"/"+thispos
+                    #print gs
+                    #print thisvector.tuplelist
 
-        kset.append(k)
-        simset.append(sim)
-        ktotal+=k
-        simtotal+=sim
-    kmean=ktotal*1.0/count
-    simmean=simtotal/count
+        if neverfound == False:
+            kset.append(k)
+            simset.append(sim)
+            ktotal+=k
+            simtotal+=sim
+    kmean=ktotal*1.0/(count-notinmaxk)
+    simmean=simtotal/(count-notinmaxk)
+    #kmedian=mymedian(kset)
+    #simmedian=mymedian(simset)
+    kmedian = scipy.stats.cmedian(numpy.array(kset))
+    simmedian = scipy.stats.cmedian(numpy.array(simset))
     propnotink=notinmaxk*1.0/count
     print "Mean k required to find 1 synonym = "+str(kmean)
+    print "Median k required to find 1 synonym = "+str(kmedian)
     print "Mean sim required to find 1 synonym = "+str(simmean)
-    print "Proportion where no synonym in "+str(maxk)+" nearest neighbouts = "+str(propnotink)
+    print "Median sim required to find 1 synonym = "+str(simmedian)
+    print "Warning: Proportion where no synonym in "+str(maxk)+" nearest neighbours = "+str(propnotink)
+    (simtokmean,simtokmedian) = computesimsize(mythes, simmedian)
+    #ksize=kmedian*count
+
+    print "Using median sim as threshold corresponds to mean k of "+str(simtokmean)+" and median k of "+str(simtokmedian)
 
 if __name__ =="__main__":
 

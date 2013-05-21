@@ -54,8 +54,8 @@ class Filter:
                 if len(filteredsyns)>0:
                     self.filteredsets[word]=filteredsyns
                     kept +=1
-            else:
-                print "Rejected "+word
+            #else:
+                #print "Rejected "+word
             done+=1
         print "Applied filter to "+str(done)+" words and kept "+str(kept)
 
