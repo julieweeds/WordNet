@@ -15,6 +15,9 @@ def configure(arguments):
     parameters["byblo"]=False
 #POS
     parameters["pos"]=["N","V","J","R"]
+#Use adjusted sims
+    parameters["adjusted_sims"]=False
+    parameters["adjusted_neighs"]=False
 
 
     for argument in arguments:
@@ -45,6 +48,12 @@ def configure(arguments):
             parameters["byblo"]=True
         if argument =="nouns":
             parameters["pos"]=["N"]
+        if argument =="adjusted_sims":
+            parameters["adjusted_sims"]=True
+            parameters["byblo"]=True
+        if argument =="adjusted_neighs":
+            parameters["adjusted_neighs"]=True
+            parameters["byblo"]=True
 
 
     parameters = setfilenames(parameters)
@@ -64,11 +73,19 @@ def setfilenames(parameters):
         parameters["parent"]="/Volumes/LocalScratchHD/juliewe/Documents/workspace/WordNet/2.1/dict/"
         parameters["out"]="/Volumes/LocalScratchHD/juliewe/Documents/workspace/WordNet/data/"
         #parameters["simsdir"]="/Volumes/LocalScratchHD/juliewe/Documents/workspace/STS/data/trial/STS2012-train/"
-        parameters["simsdir"]="/Volumes/LocalScratchHD/juliewe/Documents/workspace/ThesEval/data/giga_t100/"
+        parameters["simsdir"]="/Volumes/LocalScratchHD/juliewe/Documents/workspace/ThesEval/data/giga_t100f100/svd1000/"
 
-    if parameters["byblo"]:
-        parameters["simsfile"]=parameters["simsdir"]+"nouns-"+parameters["features"]+"_k1000.byblo"
+
+    if parameters["adjusted_sims"]:
+        parameters["simsfile"]=parameters["simsdir"]+"sims.adj.neighbours"
+    elif parameters["adjusted_neighs"]:
+        parameters["simsfile"]=parameters["simsdir"]+"neighbours.strings.adj.neighbours"
+
+    elif parameters["byblo"]:
+        parameters["simsfile"]=parameters["simsdir"]+"neighbours.strings"
     else:
         parameters["simsfile"]=parameters["simsdir"]+parameters["metric"]+"_"+parameters["features"]+"_sims.cached"
+
+
     return parameters
 
