@@ -12,7 +12,7 @@ def configure(arguments):
 #feature type
     parameters["features"]="dep"
 #byblo neighbours
-    parameters["byblo"]=False
+    parameters["byblo"]=True
 #POS
     parameters["pos"]=["N","V","J","R"]
 #Use adjusted sims
@@ -69,6 +69,7 @@ def setfilenames(parameters):
     if parameters["at_home"]:
         parameters["parent"] ="C:/Program Files/WordNet/2.1/dict/"
         parameters["out"]="C:/Users/Julie/Documents/Github/WordNet/data/"
+        parameters["simsdir"]="C:/Users/Julie/Documents/GitHub/WordNet/data/giga_t100f100_nouns_deps/nmf1000/"
     if parameters["local"]:
         parameters["parent"]="/Volumes/LocalScratchHD/juliewe/Documents/workspace/WordNet/2.1/dict/"
         parameters["out"]="/Volumes/LocalScratchHD/juliewe/Documents/workspace/WordNet/data/"
