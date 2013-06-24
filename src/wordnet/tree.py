@@ -35,13 +35,15 @@ class SynsetEntry:
         self.words=[]
         self.no_links=0
         self.linklist=[]
+        self.ancestorlist=[]
+        self.parent=""
 
     def addWord(self,word):
         self.words.append(word)
 
     def addDataWords(self,no_syns,syns):
         if no_syns==len(self.words):
-            #validity chech
+            #validity check
             return
         elif no_syns<len(self.words):
             if SynsetEntry.verbose:
@@ -60,6 +62,55 @@ class SynsetEntry:
             lid=links[i*4+1]
             self.linklist.append((type,lid))
 
+    def getParent(self):
+        if self.parent=="":
+            nop=0
+            for (rel,synset) in self.linklist:
+                if rel =="@":
+                    nop+=1
+                    self.parent=synset
+            if nop>1:
+                print "Warning: "+self.sid+" has "+str(nop)+" parents"
+            if nop ==0:
+                self.parent="__TOP__"
+        return self.parent
+
+    def getAncestors(self,synsetDict):
+        if len(self.ancestorlist)==0:
+            parent = self.getParent()
+            if parent=="__TOP__":
+                self.ancestorlist=[parent]
+            else:
+                if parent not in synsetDict.keys():
+                    print "Warning: synsetDict not complete for "+parent
+                    self.ancestorlist=["__TOP__",parent]
+                else:
+                    self.ancestorlist=list(synsetDict[parent].getAncestors(synsetDict))
+                    self.ancestorlist.append(parent)
+        return self.ancestorlist
+
+    def distance(self,aSynsetEntry):
+        #compare self.ancestorlist and aSynsetEntry's ancestorlist to find lowest common ancestor
+        #assumes "tree has been made"
+
+        clist=[] #to store common ancestors
+        dlist=[] #to store separating ancestors
+
+        for item in self.ancestorlist:
+            if item in aSynsetEntry.ancestorlist:
+                clist.append(item)
+            else:
+                dlist.append(item)
+        for item in aSynsetEntry.ancestorlist:
+            if item not in self.ancestorlist:
+                dlist.append(item)
+        if len(clist)<2:
+            #only commonality is __TOP__
+            distance=float("inf")
+        else:
+            distance=len(dlist)
+        return distance
+
     def toString(self):
         res = self.sid
         for word in self.words:
@@ -67,6 +118,7 @@ class SynsetEntry:
         res+="\n"
         for (type,lid) in self.linklist:
             res+="\t"+type+":"+lid
+        res+= self.ancestorlist
         return res
 
 class Tree:
@@ -150,7 +202,17 @@ class Tree:
                         print "Read "+str(linesread)+" lines"
                         break
         print "Completed: Read "+str(linesread)+" lines"
+        self.makeTree()
 
+    def makeTree(self):
+        print "Making tree ...."
+        done=0
+        for synset in self.synsetdict.keys():
+            self.synsetdict[synset].getAncestors(self.synsetdict)
+            done+=1
+            if done %1000 ==0: print "Processed "+str(done)+" entries"
+
+        print "Finished makeing tree."
 
     def readcounts(self):
         return
@@ -163,6 +225,10 @@ class Tree:
         else:
             print word +" not found in dictionary"
 
+    def findwords(self,nosenses):
+        for word in self.worddict.keys():
+            if self.worddict[word].senses==nosenses:
+                self.worddict[word].toString()
 
 if __name__ =="__main__":
 
@@ -171,5 +237,6 @@ if __name__ =="__main__":
     trees={}
     for pos in parameters["pos"]:
         trees[pos]=Tree(pos,parameters["data"])
-    for (word,pos) in words:
-        trees[pos].displaySynsets(word)
+    #for (word,pos) in words:
+    #    trees[pos].displaySynsets(word)
+    trees["N"].findwords(2)
