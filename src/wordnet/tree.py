@@ -75,6 +75,7 @@ class WordEntry:
 class SynsetEntry:
 
     verbose=False
+    parentPATT =re.compile('@.*')
     def __init__(self,sid):
         self.sid=sid
         self.words=[]
@@ -115,7 +116,7 @@ class SynsetEntry:
     def getParent(self):
         if len(self.parent)==0:
             for (rel,synset) in self.linklist:
-                if rel =="@":
+                if SynsetEntry.parentPATT.match(rel):
                     self.parent.append(synset)
             if SynsetEntry.verbose and len(self.parent)>1:
                 print "Warning: "+self.sid+" has "+str(len(self.parent))+" parents"
