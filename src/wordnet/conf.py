@@ -10,7 +10,7 @@ def configure(arguments):
     parameters["local"]=False
         #POS
     parameters["pos"]=["N"]
-
+    parameters["testing"]=False
 
 
 
@@ -20,34 +20,16 @@ def configure(arguments):
             parameters["on_apollo"]=True
             parameters["at_home"]=False
             parameters["local"]=False
-        if argument == "local":
+        elif argument == "local":
             parameters["on_apollo"]=False
             parameters["at_home"]=False
             parameters["local"]=True
-        if argument == "at_home":
+        elif argument == "at_home":
             parameters["on_apollo"]=False
             parameters["at_home"] =True
             parameters["local"]=False
-        if argument == "cosine":
-            parameters["metric"]="cosine"
-        if argument == "lin":
-            parameters["metric"]="lin"
-        if argument == "linadj":
-            parameters["metric"]="linadj"
-        if argument == "windows":
-            parameters["features"]="win"
-        if argument == "deps":
-            parameters["features"]="dep"
-        if argument == "byblo":
-            parameters["byblo"]=True
-        if argument =="nouns":
-            parameters["pos"]=["N"]
-        if argument =="adjusted_sims":
-            parameters["adjusted_sims"]=True
-            parameters["byblo"]=True
-        if argument =="adjusted_neighs":
-            parameters["adjusted_neighs"]=True
-            parameters["byblo"]=True
+        elif argument == "testing":
+            parameters["testing"]=True
 
 
     parameters = setfilenames(parameters)
@@ -59,7 +41,7 @@ def setfilenames(parameters):
     if parameters["at_home"]:
         parameters["data"] ="C:/Users/Julie/Documents/GitHub/WordNet/dict/"
     if parameters["local"]:
-        parameters["data"]="/Volumes/LocalScratchHD/juliewe/Documents/workspace/WordNet/2.1/dict/"
+        parameters["data"]="/Volumes/LocalScratchHD/juliewe/Documents/workspace/WordNet/dict/"
 
 
     return parameters

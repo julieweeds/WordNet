@@ -1,15 +1,20 @@
 __author__ = 'Julie'
 
 import conf,sys,re
+#from nltk.corpus import wordnet as wn
 
 class WordEntry:
     verbose=False
+  #  wnpos=wn.NOUN
+    limit = 5 #maximum predominance of most frequent sense over least frequent sense
 
     def __init__(self,word,senses):
 
         self.word=word
         self.senses=senses
         self.senselist=[] #accumulated in reverse order and then reversed
+        self.ratio=0
+        self.freqs=[] #am not guarenteeing order is the same as in senselist
 
 
     def addSynset(self,sid):
@@ -20,8 +25,48 @@ class WordEntry:
         else:
             print "Error: "+self.word +" already has listed number of senses"
 
+    def addSenseFreq(self,freq):
+        self.freqs.append(float(freq))
+
+#    def checkSenses(self):
+#        todelete=False
+#        #print self.word,self.senses,wn.synsets(self.word,WordEntry.wnpos)
+#        wnsenses=len(wn.lemmas(self.word,WordEntry.wnpos))
+#        if wnsenses != self.senses:
+#            print "Warning: number of senses mismatch for "+self.word+" : "+str(self.senses)+" compared to nltk: "+str(wnsenses)
+#        #total=0
+#        least=float("inf")
+#        most=0
+#
+#        for lemma in wn.lemmas(self.word,WordEntry.wnpos):
+#            #print lemma,lemma.count()
+#            count=lemma.count()
+#            if count<1:todelete=True  #delete any where one or more of the senses has not been seen
+#            #total+=count
+#            else:
+#                if count>most:most=count
+#                if count<least:least=count
+#        ratio = most/least
+#        self.ratio=ratio
+#        if ratio>WordEntry.limit:todelete=True
+#        return todelete
+
+    def checkSenses(self):
+        if len(self.freqs)<len(self.senselist): #unseen senses not recorded
+            return True
+        most = max(self.freqs)
+        least = min(self.freqs)
+        if least < 1:#unseen sense recorded as zero
+            return True
+        else:
+            ratio = most/least
+            self.ratio=ratio
+            if ratio>WordEntry.limit:#overly predominant sense
+                return True
+        return False
+
     def toString(self):
-        res = self.word + "\t"+str(self.senses)
+        res = self.word + "\t no_of_senses = "+str(self.senses)+" \tmax to min sense predominance ratio = "+str(self.ratio)
         for sense in self.senselist:
             res = res + "\t"+sense
         #res=res+"\n"
@@ -62,6 +107,7 @@ class SynsetEntry:
             type=links[i*4]
             lid=links[i*4+1]
             self.linklist.append((type,lid))
+
     def addDef(self,defin):
         for term in defin:
             self.definition+=" "+term
@@ -131,15 +177,19 @@ class SynsetEntry:
         for word in self.words:
             res+="\t"+word
         res+="\t"+self.definition+"\n"
-        for (type,lid) in self.linklist:
-            res+="\t"+type+":"+lid
-        res+= str(self.ancestorlist)
+        #for (type,lid) in self.linklist:
+        #    res+="\t"+type+":"+lid
+        #res+= str(self.ancestorlist)
         return res
 
 class Tree:
     indexfiles={"N":"index.noun","V":"index.verb","J":"index.adj","R":"index.adv"}
     datafiles={"N":"data.noun","V":"data.verb","J":"data.adj","R":"data.adv"}
     cntfile="cntlist.rev"
+    multiPATT=re.compile('.*_.*')
+    nouncntPATT=re.compile('(.*)%1:')
+    cntPATT={"N":re.compile('(.*)%1'),"V":re.compile('(.*)%2'),"J":re.compile('(.*)%3'),"R":re.compile('(.*)%4')}
+
 
     def __init__(self,pos,datadir,verbose=False):
         self.pos=pos
@@ -149,6 +199,7 @@ class Tree:
         self.verbose=verbose
         WordEntry.verbose=verbose
         SynsetEntry.verbose=verbose
+        self.completeread=False
 
         ###read files
         self.readindex()
@@ -179,8 +230,8 @@ class Tree:
                             self.synsetdict[synsetid].addWord(word)
                         senses=senses-1
                     if linesread%10000==0:
-                        print "Read "+str(linesread)+" lines"
-                        break
+                        if self.verbose: print "Read "+str(linesread)+" lines"
+                        if parameters["at_home"] or parameters["testing"]:break
         print "Completed: Read "+str(linesread)+" lines"
 
     def readdata(self):
@@ -215,9 +266,10 @@ class Tree:
                     self.synsetdict[synset].addDef(rest)
 
                     if linesread%10000==0:
-                        print "Read "+str(linesread)+" lines"
-                        break
+                        if self.verbose: print "Read "+str(linesread)+" lines"
+                        if parameters["at_home"] or parameters["testing"]:break
         print "Completed: Read "+str(linesread)+" lines"
+        self.completeread=True
         self.makeTree()
 
     def makeTree(self):
@@ -226,12 +278,53 @@ class Tree:
         for synset in self.synsetdict.keys():
             self.synsetdict[synset].getAncestors(self.synsetdict)
             done+=1
-            if done %1000 ==0: print "Processed "+str(done)+" entries"
+            if done %1000 ==0 and self.verbose: print "Processed "+str(done)+" entries"
 
         print "Finished making tree."
 
+#    def readcounts(self):
+#        total=0
+#        count=0
+#        for word in self.worddict.keys():
+#            total+=1
+#            todelete = self.worddict[word].checkSenses()
+#            if todelete:
+#                count+=1
+#                del self.worddict[word]
+#        print "Deleted "+str(count)+" out of "+str(total)+" word entries due to no sense info or over-predominance of one sense"
+#        return
+
     def readcounts(self):
+        filename=self.datadir+Tree.cntfile
+        print "Reading "+filename
+        linesread=0
+        with open(filename,'r') as instream:
+            linesread+=1
+            for line in instream:
+                line = line.rstrip()
+                fields=line.split(' ')
+                if len(fields)!=3:
+                    print "Invalid line "+line
+                matchobj=Tree.cntPATT[self.pos].match(fields[0])
+                if matchobj: #might not match if verb etc so ignore
+                    word=matchobj.group(1)
+                if word in self.worddict.keys(): #should be there but just in case
+                    self.worddict[word].addSenseFreq(fields[2])
+            if linesread%1000==0:
+                if self.verbose: print "Read "+str(linesread)+" lines"
+        print "Completed: read "+str(linesread)+" lines"
+        print "Analysing sense frequency information"
+        total=0
+        count=0
+        for word in self.worddict.keys():
+            total+=1
+            todelete = self.worddict[word].checkSenses()
+            if todelete:
+                count+=1
+                del self.worddict[word]
+        print "Deleted "+str(count)+" out of "+str(total)+" word entries due to no sense info or over-predominance of one sense"
         return
+
 
     def displaySynsets(self,word):
         if word in self.worddict.keys():
@@ -242,54 +335,79 @@ class Tree:
             print word +" not found in dictionary"
 
     def findwords(self,nosenses):
+        if nosenses==1:
+            candidates=self.findmonos()
         #displayed=0
-        candidates=[]
-        for word in self.worddict.keys():
-            if self.worddict[word].senses==nosenses:
-                #print self.worddict[word].toString()
-                length=len(self.worddict[word].senselist)
-                found=0
-                shouldfind=0
-                totaldist=0
-                for i in range(length):
-                    sense=self.worddict[word].senselist[i]
-                    if sense in self.synsetdict.keys():
-                        #print self.synsetdict[sense].toString()
-                        for j in range(i+1,length):
-                            sense2=self.worddict[word].senselist[j]
-                            dist=self.synsetdict[sense].distance(self.synsetdict[sense2])
-                            #print sense,sense2,str(dist)
-                            shouldfind+=1
-                            if dist < float("inf"):
-                                #displayed+=1
-                                found+=1
-                                totaldist+=dist
-                if found == shouldfind:
-                    average=float(totaldist)/float(found)
-                    candidates.append((average,word))
-            #if displayed>0: break
+        else:
+            candidates=[]
+            for word in self.worddict.keys():
+                if self.worddict[word].senses==nosenses:
+                    #print self.worddict[word].toString()
+                    length=len(self.worddict[word].senselist)
+                    #found=0
+                    #shouldfind=0
+                    #totaldist=0
+                    maxdist=float("inf")
+                    for i in range(length):
+                        sense=self.worddict[word].senselist[i]
+                        if self.completeread or sense in self.synsetdict.keys():
+                            #print self.synsetdict[sense].toString()
+                            for j in range(i+1,length):
+                                sense2=self.worddict[word].senselist[j]
+                                dist=self.synsetdict[sense].distance(self.synsetdict[sense2])
+                                #print sense,sense2,str(dist)
+                                #shouldfind+=1
+                                if dist < maxdist:
+                                    #displayed+=1
+                                    #found+=1
+                                    #totaldist+=dist
+                                    maxdist=dist
+                    #if found == shouldfind:
+                        #average=float(totaldist)/float(found)
+                        #candidates.append((average,word))
+                    candidates.append((maxdist,word))
+                #if displayed>0: break
         candidates.sort(reverse=True)
-        print "There are "+str(len(candidates))+" in candidate list for "+str(nosenses)+" senses, top 10 are: "
-        self.displaycandidates(candidates[0:10])
+        candidates=self.filtercandidates(candidates)
+        print "There are "+str(len(candidates))+" in candidate list for "+str(nosenses)+" senses, up to top 20 are: "
+        self.displaycandidates(candidates[0:20])
         #print candidates[0:10]
         return candidates
+
+    def findmonos(self):
+        candidates=[]
+        for word in self.worddict.keys():
+            if self.worddict[word].senses==1:
+                if len(self.worddict[word].freqs)==1:
+                    freq=self.worddict[word].freqs[0]
+                    candidates.append((freq,word))
+        return candidates
+
+    def filtercandidates(self,mylist):
+        #remove multiwords
+        newlist=[]
+        for(distance,word) in mylist:
+            matchobj=Tree.multiPATT.match(word)
+            if not matchobj:
+                newlist.append((distance,word))
+        return newlist
 
     def displaycandidates(self,mylist):
 
         for (distance,word) in mylist:
-            print word, distance
+            print word+ ": score = "+str(distance)
             print self.worddict[word].toString()
             for sid in self.worddict[word].senselist:
                 print self.synsetdict[sid].toString()
 
 if __name__ =="__main__":
 
-    words=[("accusation","N"),("ancylus","N")]
+#    words=[("accusation","N"),("ancylus","N")]
     parameters=conf.configure(sys.argv)
     trees={}
     for pos in parameters["pos"]:
-        trees[pos]=Tree(pos,parameters["data"])
+        trees[pos]=Tree(pos,parameters["data"],verbose=False)
     #for (word,pos) in words:
     #    trees[pos].displaySynsets(word)
-    for i in range(2,6):
+    for i in range(1,10):
         trees["N"].findwords(i)
