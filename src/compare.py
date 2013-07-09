@@ -292,8 +292,10 @@ if __name__ =="__main__":
 
     files={"N":"index.noun.synonyms.filtered","V":"index.verb.synonyms.filtered","J":"index.adj.synonyms.filtered","R":"index.adv.synonyms.filtered"}
     parameters=conf.configure(sys.argv)
+    if parameters["bless"]==True:
+        files={"N":"BLESS_simlists.txt"}
 
-     #read synsets = GS
+        #read synsets = GS
     myfilter={}
     gstotal=0
     inwords=[]
@@ -311,6 +313,6 @@ if __name__ =="__main__":
     adja = 1 #adja and adjb not used in this program
     adjb = 1
 
-#    analyseF()  #analyse precision recall and F at different ks and sim thresholds and plot curves
+    analyseF()  #analyse precision recall and F at different ks and sim thresholds and plot curves
 
-    nearestsyn() # find nearest synonym for each word and analyse k required k using k and sim thresholds
+#    nearestsyn() # find nearest synonym for each word and analyse k required k using k and sim thresholds

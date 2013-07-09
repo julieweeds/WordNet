@@ -84,6 +84,9 @@ if __name__ =="__main__":
 
     files={"N":"index.noun.synonyms","V":"index.verb.synonyms","J":"index.adj.synonyms","R":"index.adv.synonyms"}
     parameters=conf.configure(sys.argv)
+    if parameters["bless"]==True:
+        files={"N":"BLESS_simlists.txt"}
+
 
     #read simcache
     infile = parameters["simsfile"]

@@ -26,35 +26,36 @@ def configure(arguments):
             parameters["on_apollo"]=True
             parameters["at_home"]=False
             parameters["local"]=False
-        if argument == "local":
+        elif argument == "local":
             parameters["on_apollo"]=False
             parameters["at_home"]=False
             parameters["local"]=True
-        if argument == "at_home":
+        elif argument == "at_home":
             parameters["on_apollo"]=False
             parameters["at_home"] =True
             parameters["local"]=False
-        if argument == "cosine":
+        elif argument == "cosine":
             parameters["metric"]="cosine"
-        if argument == "lin":
+        elif argument == "lin":
             parameters["metric"]="lin"
-        if argument == "linadj":
+        elif argument == "linadj":
             parameters["metric"]="linadj"
-        if argument == "windows":
+        elif argument == "windows":
             parameters["features"]="win"
-        if argument == "deps":
+        elif argument == "deps":
             parameters["features"]="dep"
-        if argument == "byblo":
+        elif argument == "byblo":
             parameters["byblo"]=True
-        if argument =="nouns":
+        elif argument =="nouns":
             parameters["pos"]=["N"]
-        if argument =="adjusted_sims":
+        elif argument =="adjusted_sims":
             parameters["adjusted_sims"]=True
             parameters["byblo"]=True
-        if argument =="adjusted_neighs":
+        elif argument =="adjusted_neighs":
             parameters["adjusted_neighs"]=True
             parameters["byblo"]=True
-
+        elif argument=="bless":
+            parameters["bless"]=True
 
     parameters = setfilenames(parameters)
     if parameters["features"]=="win":
@@ -69,12 +70,12 @@ def setfilenames(parameters):
     if parameters["at_home"]:
         parameters["parent"] ="C:/Program Files/WordNet/2.1/dict/"
         parameters["out"]="C:/Users/Julie/Documents/Github/WordNet/data/"
-        parameters["simsdir"]="C:/Users/Julie/Documents/GitHub/WordNet/data/giga_t100f100_nouns_deps/nmf1000/"
+        parameters["simsdir"]="C:/Users/Julie/Documents/GitHub/WordNet/data/giga_t100f100_nouns_deps/"
     if parameters["local"]:
         parameters["parent"]="/Volumes/LocalScratchHD/juliewe/Documents/workspace/WordNet/2.1/dict/"
         parameters["out"]="/Volumes/LocalScratchHD/juliewe/Documents/workspace/WordNet/data/"
         #parameters["simsdir"]="/Volumes/LocalScratchHD/juliewe/Documents/workspace/STS/data/trial/STS2012-train/"
-        parameters["simsdir"]="/Volumes/LocalScratchHD/juliewe/Documents/workspace/ThesEval/data/giga_t100f100/svd1000/"
+        parameters["simsdir"]="/Volumes/LocalScratchHD/juliewe/Documents/workspace/ThesEval/data/giga_t100f100/"
 
 
     if parameters["adjusted_sims"]:
