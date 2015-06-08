@@ -1,3 +1,4 @@
+
 __author__ = 'Julie'
 
 import conf
@@ -5,6 +6,8 @@ import sys
 import re
 
 class Index:
+    #for a given POS, read WN index files, create index and reverse index of word->synset
+    #for every word, output all of the other words which are in the same synset.
 
     multiwordPATT = re.compile('.*_.*')
     def __init__(self,pos,filename,outname):
@@ -31,11 +34,7 @@ class Index:
     def processline(self,line):
 
         fields = line.split(' ')
-#        length=len(fields)
-#        senses=length-10
- #       print fields
         word = fields[0]+"/"+self.pos
- #       print word +" : "+str(len(fields))
         senses = int(fields[2])
         while senses>0:
             synset=fields.pop()
