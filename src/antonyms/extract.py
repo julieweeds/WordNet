@@ -108,9 +108,9 @@ if __name__ == "__main__":
     #           "N":"wikiPOS_t100f100_nouns_deps/neighbours.strings"}
     #outdir="/Volumes/LocalScratchHD/juliewe/Documents/workspace/WordNet/moredata/"
 
-    outdir="/Volumes/LocalScratchHD/juliewe/Documents/workspace/WordNet/thesdata/pilot/"
+    outdir="/Volumes/LocalScratchHD/juliewe/Documents/workspace/WordNet/thesdata/antopilot/"
     parentdir=outdir
-    thesfiles={"J":"vectors.adjs"}
+    thesfiles={"J":"secondorder_pmi.sims.neighbours.strings"}
     outfiles={"J":"wikiPOS_adjs_","N":"wikiPOS_nouns_"}
 
 
